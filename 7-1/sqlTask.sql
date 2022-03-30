@@ -1,40 +1,40 @@
--- 1. “X•Üƒe[ƒuƒ‹‚©‚ç“X•Ü–¼‚ð’Šo‚µ‚È‚³‚¢B‚Ü‚½A—ñ–¼‚Ì•\Ž¦‚Í•Ê–¼‚Å'“X•Ü–¼'‚Æ‚·‚é‚±‚ÆB
--- [‰ñ“š]
- select store_name from store_table;
+-- 1. ï¿½Xï¿½Üƒeï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Xï¿½Ü–ï¿½ï¿½ð’Šoï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½Ü‚ï¿½ï¿½Aï¿½ñ–¼‚Ì•\ï¿½ï¿½ï¿½Í•Ê–ï¿½ï¿½ï¿½'ï¿½Xï¿½Ü–ï¿½'ï¿½Æ‚ï¿½ï¿½é‚±ï¿½ÆB
+-- [ï¿½ï¿½]
+ select store_name as åº—èˆ—å from store_table;
  
--- 2. “X•Üî•ñ‚ð“X•Ü–¼‚ÌABC‡‚É’Šo‚µ‚È‚³‚¢B
--- [‰ñ“š]
+-- 2. ï¿½Xï¿½Üï¿½ï¿½ï¿½Xï¿½Ü–ï¿½ï¿½ï¿½ABCï¿½ï¿½ï¿½É’ï¿½ï¿½oï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½B
+-- [ï¿½ï¿½]
  select * from store_table order by store_nameabc asc;
  
--- 3. ÝŒÉƒe[ƒuƒ‹‚É“X•Üƒe[ƒuƒ‹A¤•iƒe[ƒuƒ‹‚ðu“à•”Œ‹‡v‚µA“X•Ü–¼E¤•i–¼EÝŒÉ”‚ð‘S‚ÄŽæ“¾‚µ‚È‚³‚¢B
--- [‰ñ“š]
+-- 3. ï¿½ÝŒÉƒeï¿½[ï¿½uï¿½ï¿½ï¿½É“Xï¿½Üƒeï¿½[ï¿½uï¿½ï¿½ï¿½Aï¿½ï¿½ï¿½iï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½vï¿½ï¿½ï¿½Aï¿½Xï¿½Ü–ï¿½ï¿½Eï¿½ï¿½ï¿½iï¿½ï¿½ï¿½Eï¿½ÝŒÉï¿½ï¿½ï¿½Sï¿½ÄŽæ“¾ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½B
+-- [ï¿½ï¿½]
  select store_name,goods_name,quantity 
  from stock_table
  join goods_table on stock_table.goods_code = goods_table.goods_code
  join store_table on stock_table.store_code = store_table.store_code;
  
--- 4. ¤•iƒe[ƒuƒ‹‚©‚ç‘S¤•i‚Ì’P‰¿‚Ì•½‹Ï’l‚ð’Šo‚µ‚È‚³‚¢B
--- [‰ñ“š]
+-- 4. ï¿½ï¿½ï¿½iï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Sï¿½ï¿½ï¿½iï¿½Ì’Pï¿½ï¿½ï¿½Ì•ï¿½ï¿½Ï’lï¿½ð’Šoï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½B
+-- [ï¿½ï¿½]
  select AVG(price) from goods_table;
 
  
--- 5. “X•ÜƒR[ƒh='EA01'‚ÌÝŒÉ”‚Ì•½‹Ï’l‚æ‚è‘å‚«‚¢ÝŒÉ”‚ðŽ‚Â“X•ÜƒR[ƒh‚ð’Šo‚µ‚È‚³‚¢B
--- [‰ñ“š]
+-- 5. ï¿½Xï¿½ÜƒRï¿½[ï¿½h='EA01'ï¿½ÌÝŒÉï¿½ï¿½Ì•ï¿½ï¿½Ï’lï¿½ï¿½ï¿½å‚«ï¿½ï¿½ï¿½ÝŒÉï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â“Xï¿½ÜƒRï¿½[ï¿½hï¿½ð’Šoï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½B
+-- [ï¿½ï¿½]
  select store_code from stock_table 
   where quantity > (select AVG(quantity) from stock_table where store_code = 'EA01');
  
--- 6. ¤•iƒe[ƒuƒ‹‚Éu¤•iƒR[ƒh='M001'A¤•i–¼='ƒ}ƒtƒ‰['A’P‰¿=4500‰~AXV“ú•t=–{“ú“ú•tv‚Ìƒf[ƒ^‚ð’Ç‰Á‚µ‚È‚³‚¢B¦ŽÀsŒã‚ÌSELECTŒ‹‰Ê‚à“\•t‚·‚é‚±‚ÆB
--- [‰ñ“š]
+-- 6. ï¿½ï¿½ï¿½iï¿½eï¿½[ï¿½uï¿½ï¿½ï¿½Éuï¿½ï¿½ï¿½iï¿½Rï¿½[ï¿½h='M001'ï¿½Aï¿½ï¿½ï¿½iï¿½ï¿½='ï¿½}ï¿½tï¿½ï¿½ï¿½['ï¿½Aï¿½Pï¿½ï¿½=4500ï¿½~ï¿½Aï¿½Xï¿½Vï¿½ï¿½ï¿½t=ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½vï¿½Ìƒfï¿½[ï¿½^ï¿½ï¿½Ç‰ï¿½ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½SELECTï¿½ï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½tï¿½ï¿½ï¿½é‚±ï¿½ÆB
+-- [ï¿½ï¿½]
  insert into goods_table(goods_code,goods_name,price,update_day)
-values('M001','ƒ}ƒtƒ‰[',4500,'2022-03-30');
+values('M001','ï¿½}ï¿½tï¿½ï¿½ï¿½[',4500,'2022-03-30');
  
--- 7. ÝŒÉƒe[ƒuƒ‹‚Ì¤•iƒR[ƒh='S987'A‚©‚ÂA“X•ÜƒR[ƒh='EA01'‚É‘Î‚µ‚ÄAuÝŒÉ”=10AXV“ú•t=–{“ú“ú•tv‚ÅXV‚µ‚È‚³‚¢B¦ŽÀsŒã‚ÌSELECTŒ‹‰Ê‚à“\•t‚·‚é‚±‚ÆB
--- [‰ñ“š]
+-- 7. ï¿½ÝŒÉƒeï¿½[ï¿½uï¿½ï¿½ï¿½Ìï¿½ï¿½iï¿½Rï¿½[ï¿½h='S987'ï¿½Aï¿½ï¿½ï¿½ÂAï¿½Xï¿½ÜƒRï¿½[ï¿½h='EA01'ï¿½É‘Î‚ï¿½ï¿½ÄAï¿½uï¿½ÝŒÉï¿½=10ï¿½Aï¿½Xï¿½Vï¿½ï¿½ï¿½t=ï¿½{ï¿½ï¿½ï¿½ï¿½ï¿½tï¿½vï¿½ÅXï¿½Vï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½SELECTï¿½ï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½tï¿½ï¿½ï¿½é‚±ï¿½ÆB
+-- [ï¿½ï¿½]
  update stock_table set quantity = 10 ,update_day = '2022-03-30'
 where goods_code = 'S987' and store_code = 'EA01'
  
--- 8. 7‚ÅXV‚µ‚½¤•i‚ðíœ‚µ‚È‚³‚¢B¦ŽÀsŒã‚ÌSELECTŒ‹‰Ê‚à“\•t‚·‚é‚±‚ÆB
--- [‰ñ“š]
+-- 8. 7ï¿½ÅXï¿½Vï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½iï¿½ï¿½ï¿½íœï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½Bï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½SELECTï¿½ï¿½ï¿½Ê‚ï¿½ï¿½\ï¿½tï¿½ï¿½ï¿½é‚±ï¿½ÆB
+-- [ï¿½ï¿½]
 
 delete from stock_table where update_day = '2022-03-30';
 delete from goods_table where update_day = '2022-03-30';
