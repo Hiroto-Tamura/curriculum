@@ -15,7 +15,7 @@ class car{
         this.number = number;
     }
     getNumGas(){
-        console.log(`ガソリンは${this.gas}です。ナンバーは${this.number}です`);
+        console.log(`ガソリンは${this.gas}です。ナンバーは${this.number}です。`);
     }
 }
 let myCar = new car(20,1234);
