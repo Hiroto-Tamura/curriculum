@@ -1,15 +1,22 @@
-let number = 1;
-while(number<=100){
-    number++;
-    if(number%3===0 && number%5===0){
-        console.log("FizzBuzz");
+let numbers = [2, 5, 12, 13, 15, 18, 22];
+//ここに答えを実装してください。↓↓↓
+function isEven() {
+    for(let i = 0 ; i < numbers.length ; i ++){
+        if(numbers[i] % 2 === 0){
+            console.log(numbers[i] + 'は偶数です');
+        }
     }
-    else if(number%5===0){
-        console.log("Buzz");
-    }else if(number%3===0){
-        console.log("Fizz");
-    }else{
-        console.log(number);
-    }
-
 }
+isEven();
+
+class car{
+    constructor(gas,number){
+        this.gas = gas;
+        this.number = number;
+    }
+    getNumGas(){
+        console.log(`ガソリンは${this.gas}です。ナンバーは${this.number}です`);
+    }
+}
+let myCar = new car(20,1234);
+myCar.getNumGas();
